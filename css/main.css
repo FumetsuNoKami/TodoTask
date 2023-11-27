@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  background: #e6e6fa;
+  border-right: 1px solid #4b4ba3;
+  border-left: 1px solid #4b4ba3;
+  padding: 5vh 0;
+}
+.container {
+  margin: 0 20vw;
+  display: flex;
+  justify-content: center;
+  transition-duration: 0.3s;
+  align-items: center;
+  flex-direction: column;
+  width: 60vw;
+  box-shadow: 0 0 100px 10px #ede4fa;
+}
+.headItem {
+  margin-top: 1vh;
+}
+.headInput {
+  width: 40vw;
+  padding: 1.2vh 1vw;
+  border: 0;
+  transition-duration: 0.3s;
+}
+.headInput:focus {
+  outline: none;
+  box-shadow: skyblue 0 0 10px 2px;
+}
+.headInput:hover {
+  box-shadow: skyblue 0 0 10px 2px;
+}
+.headInput::placeholder {
+  font-size: 1.2em;
+  opacity: 50%;
+}
+.addBtn {
+  color: lavender;
+  font-size: 1em;
+  background-color: #4b4ba3;
+  width: 8vw;
+  padding: 1vh 1vw;
+  margin-left: -4px;
+  border: 0;
+  transition-duration: 0.3s;
+}
+.addBtn:hover {
+  background-color: blueviolet;
+  cursor: pointer;
+}
+
+.listCont {
+  background: #e3f0f9;
+  border-right: 1px solid #4b4ba3;
+  border-left: 1px solid #4b4ba3;
+}
+.list {
+}
+.listItem {
+  border-right: 1px solid #4b4ba3;
+  border-left: 1px solid #4b4ba3;
+  display: flex;
+  width: 60vw;
+  font-family: cursive;
+  font-weight: 600;
+  font-size: 1.15em;
+  justify-content: space-between;
+  padding-left: 6vw;
+  background: skyblue;
+}
+.even {
+  background: cornflowerblue;
+  border-bottom: #4b4ba3 1px solid;
+}
+.odd {
+  border-bottom: #4b4ba3 1px solid;
+}
+.completedBtn {
+  border: 0;
+  width: 2vw;
+  height: 3vh;
+  margin-right: -10px;
+  color: white;
+  background: darkseagreen;
+  cursor: pointer;
+}
+.deleteBtn {
+  width: 2vw;
+  height: 3vh;
+  border: 0;
+  color: white;
+  background: #b42222;
+  cursor: pointer;
+}
