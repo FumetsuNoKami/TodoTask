@@ -56,10 +56,15 @@ const createListItem = () => {
     const liText = deleting
       .closest("li")
       .textContent.substring(0, deleting.closest("li").textContent.length - 2);
-    const completeIndex = buf.indexOf(liText, 0);
-    storageValues.splice(completeIndex, 1);
+    const delIndex = buf.indexOf(liText, 0);
+    storageValues.splice(delIndex, 1);
     localStorage.setItem("tasks", JSON.stringify(storageValues));
     i--;
+    const items = document.getElementsByClassName("listItem");
+    for (let k = 0; k < items.length; k++) {
+      items[k].classList.remove(k % 2 === 0 ? "odd" : "even");
+      items[k].classList.add(k % 2 === 1 ? "odd" : "even");
+    }
   });
 
   divadd.classList.add("divadd");
