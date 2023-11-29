@@ -19,7 +19,21 @@ h1 {
   border-left: 1px solid #4b4ba3;
   padding: 5vh 0;
 }
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0 0 100px 1px #7225e8;
+  }
+  50% {
+    box-shadow: 0 0 10px 1px #7225e8;
+  }
+  100% {
+    box-shadow: 0 0 100px 1px #7225e8;
+  }
+}
+
 .container {
+  animation: shadow 5s ease-in-out infinite;
   margin: 0 20vw;
   display: flex;
   justify-content: center;
