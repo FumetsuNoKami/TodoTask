@@ -61,7 +61,7 @@ const createListItem = () => {
     localStorage.setItem("tasks", JSON.stringify(storageValues));
     i--;
     const items = document.getElementsByClassName("listItem");
-    for (let k = 0; k < items.length; k++) {
+    for (let k = delIndex; k < items.length; k++) {
       items[k].classList.remove(k % 2 === 0 ? "odd" : "even");
       items[k].classList.add(k % 2 === 1 ? "odd" : "even");
     }
