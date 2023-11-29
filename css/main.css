@@ -53,6 +53,18 @@ h1 {
   color: lavender;
   opacity: 50%;
 }
+@keyframes fade {
+  0% {
+    background: #4b4ba3;
+  }
+  50% {
+    background: blueviolet;
+  }
+  100% {
+    background: #4b4ba3;
+  }
+}
+
 .addBtn {
   color: lavender;
   font-size: 1.7em;
@@ -63,7 +75,7 @@ h1 {
   border: 0;
 }
 .addBtn:hover {
-  background-color: blueviolet;
+  animation: fade 2s ease-in-out infinite;
   cursor: pointer;
 }
 
@@ -72,8 +84,7 @@ h1 {
   border-right: 1px solid #4b4ba3;
   border-left: 1px solid #4b4ba3;
 }
-.list {
-}
+
 .listItem {
   align-items: center;
   border-right: 1px solid #4b4ba3;
@@ -87,7 +98,7 @@ h1 {
   overflow: auto;
 }
 .even {
-  background: linear-gradient(#252525, #3a1880, #252525);
+  background: #2b2c3bff;
 
   color: mistyrose;
   border-bottom: #000000 1px solid;
@@ -103,6 +114,7 @@ h1 {
   color: darkgray;
   background: green;
 }
+
 .completedBtn {
   border: 0;
   width: 4vw;
@@ -121,6 +133,10 @@ h1 {
   color: white;
   background: #b42222;
   cursor: pointer;
+}
+
+.element {
+  animation: fade 0.9s ease;
 }
 
 .divadd {
