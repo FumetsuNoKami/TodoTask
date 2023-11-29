@@ -1,11 +1,11 @@
 let i = 0;
-const addBtn = document.getElementsByClassName("addBtn")[0];
 const inputField = document.getElementsByClassName("headInput")[0];
+const addBtn = document.getElementsByClassName("addBtn")[0];
 const list = document.getElementsByClassName("list")[0];
-let length = document.getElementsByClassName("listItem").length;
 const completedBtn = document.getElementsByClassName("completedBtn");
 const deleteBtn = document.getElementsByClassName("deleteBtn");
 const storageValues = [];
+
 if (JSON.parse(localStorage.getItem("tasks")) != null)
   for (let i = 0; i < JSON.parse(localStorage.getItem("tasks")).length; i++) {
     storageValues.push({
@@ -35,7 +35,6 @@ const createListItem = () => {
     }
 
     const completeIndex = buf.indexOf(liText, 0);
-
     if (completing.closest("li").classList.contains("completedItem")) {
       storageValues[completeIndex].status = "Not completed";
       completing.closest("li").classList.remove("completedItem");
@@ -45,6 +44,7 @@ const createListItem = () => {
     }
     localStorage.setItem("tasks", JSON.stringify(storageValues));
   });
+
   deleting.classList.add("deleteBtn");
   deleting.innerHTML = "✖";
   deleting.addEventListener("click", () => {
@@ -61,6 +61,7 @@ const createListItem = () => {
     localStorage.setItem("tasks", JSON.stringify(storageValues));
     i--;
   });
+
   divadd.classList.add("divadd");
   divadd.append(completing);
   divadd.append(deleting);
@@ -78,8 +79,10 @@ const createListItem = () => {
   addItem.classList.add("listItem", i % 2 === 0 ? "even" : "odd");
   addItem.append(divadd);
   list.append(addItem);
+
   if (storageValues[i].status === "completed")
     completing.closest("li").classList.add("completedItem");
+
   i++;
   inputField.value = "";
   localStorage.setItem("tasks", JSON.stringify(storageValues));
@@ -89,6 +92,7 @@ if (JSON.parse(localStorage.getItem("tasks")) != null)
   for (let i = 0; i < JSON.parse(localStorage.getItem("tasks")).length; i++) {
     createListItem();
   }
+
 if (JSON.parse(localStorage.getItem("tasks")) == null) {
   localStorage.setItem("tasks", "[]");
 }
