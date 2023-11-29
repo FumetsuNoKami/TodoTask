@@ -23,13 +23,13 @@ h1 {
 
 @keyframes shadow {
   0% {
-    box-shadow: 0 300px 500px 100px #7225e8;
+    box-shadow: 0 50px 500px 100px #7225e8;
   }
   50% {
-    box-shadow: 0 300px 500px 10px #7225e8;
+    box-shadow: 0 50px 500px 10px #7225e8;
   }
   100% {
-    box-shadow: 0 300px 500px 100px #7225e8;
+    box-shadow: 0 50px 500px 100px #7225e8;
   }
 }
 
