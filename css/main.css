@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  transition: all 0.5s;
   padding: 0;
   box-sizing: border-box;
 }
@@ -8,12 +9,12 @@ body {
 }
 h1 {
   font-size: 3em;
-  color: #7225e8;
+  color: #da84ff;
   font-weight: 600;
 }
 .header {
   border-radius: 15px 15px 0 0;
-  background: #e6e6fa;
+  background: #2b2c3b;
   border-right: 1px solid #4b4ba3;
   border-left: 1px solid #4b4ba3;
   padding: 5vh 0;
@@ -22,7 +23,6 @@ h1 {
   margin: 0 20vw;
   display: flex;
   justify-content: center;
-  transition-duration: 0.3s;
   align-items: center;
   flex-direction: column;
   width: 60vw;
@@ -37,9 +37,9 @@ h1 {
   width: 40vw;
   padding: 1.2vh 1vw;
   border: 0;
-  color: #4b4ba3;
+  background: #3b3b3b;
+  color: #b5acff;
   font-weight: 500;
-  transition-duration: 0.3s;
 }
 .headInput:focus {
   outline: none;
@@ -50,6 +50,7 @@ h1 {
 }
 .headInput::placeholder {
   font-size: 0.8em;
+  color: lavender;
   opacity: 50%;
 }
 .addBtn {
@@ -60,7 +61,6 @@ h1 {
   padding: 1vh 1vw;
   margin-left: -4px;
   border: 0;
-  transition-duration: 0.3s;
 }
 .addBtn:hover {
   background-color: blueviolet;
@@ -99,9 +99,9 @@ h1 {
 }
 
 .completedItem {
-  outline: greenyellow solid 1px;
+  opacity: 50%;
   color: darkgray;
-  background: dimgrey;
+  background: green;
 }
 .completedBtn {
   border: 0;

@@ -3,8 +3,6 @@ const addBtn = document.getElementsByClassName("addBtn")[0];
 const inputField = document.getElementsByClassName("headInput")[0];
 const list = document.getElementsByClassName("list")[0];
 let length = document.getElementsByClassName("listItem").length;
-let parity;
-parity = length % 2 === 0;
 const completedBtn = document.getElementsByClassName("completedBtn");
 const deleteBtn = document.getElementsByClassName("deleteBtn");
 const storageValues = [];
@@ -76,17 +74,10 @@ const createListItem = () => {
     storageValues.push({ text: inputField.value, status: "Not completed" });
     addItem.innerHTML = inputField.value;
   }
-  if (parity === false) {
-    addItem.setAttribute("class", "listItem even");
-    addItem.append(divadd);
-    list.append(addItem);
-    parity = !parity;
-  } else {
-    addItem.setAttribute("class", "listItem odd");
-    addItem.append(divadd);
-    list.append(addItem);
-    parity = !parity;
-  }
+
+  addItem.classList.add("listItem", i % 2 === 0 ? "even" : "odd");
+  addItem.append(divadd);
+  list.append(addItem);
   if (storageValues[i].status === "completed")
     completing.closest("li").classList.add("completedItem");
   i++;
