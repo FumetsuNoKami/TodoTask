@@ -13,6 +13,7 @@ h1 {
   font-weight: 600;
 }
 .header {
+  animation: shadow 5s ease-in-out infinite;
   border-radius: 15px 15px 0 0;
   background: #2b2c3b;
   border-right: 1px solid #4b4ba3;
@@ -22,25 +23,23 @@ h1 {
 
 @keyframes shadow {
   0% {
-    box-shadow: 0 0 100px 1px #7225e8;
+    box-shadow: 0 300px 500px 100px #7225e8;
   }
   50% {
-    box-shadow: 0 0 10px 1px #7225e8;
+    box-shadow: 0 300px 500px 10px #7225e8;
   }
   100% {
-    box-shadow: 0 0 100px 1px #7225e8;
+    box-shadow: 0 300px 500px 100px #7225e8;
   }
 }
 
 .container {
-  animation: shadow 5s ease-in-out infinite;
   margin: 0 20vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 60vw;
-  box-shadow: 0 0 100px 1px #7225e8;
 }
 .headItem {
   display: flex;
@@ -111,16 +110,20 @@ h1 {
   padding-left: 6vw;
   overflow: auto;
 }
+
 .even {
   background: #2b2c3bff;
-
   color: mistyrose;
   border-bottom: #000000 1px solid;
 }
+
 .odd {
   background: #252525;
   color: mistyrose;
   border-bottom: #000000 1px solid;
+}
+.even:first-child {
+  border-top: #000000 1px solid;
 }
 
 .completedItem {
