@@ -3,7 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background: #252525;
+}
 .header {
+  border-radius: 15px 15px 0 0;
   background: #e6e6fa;
   border-right: 1px solid #4b4ba3;
   border-left: 1px solid #4b4ba3;
@@ -17,7 +21,7 @@
   align-items: center;
   flex-direction: column;
   width: 60vw;
-  box-shadow: 0 0 100px 10px #ede4fa;
+  box-shadow: 0 0 100px 1px #7225e8;
 }
 .headItem {
   margin-top: 1vh;
@@ -71,23 +75,28 @@
   font-size: 1.15em;
   justify-content: space-between;
   padding-left: 6vw;
-  background: skyblue;
 }
 .even {
-  background: cornflowerblue;
+  background: #7b46f5;
+  color: black;
   border-bottom: #4b4ba3 1px solid;
 }
 .odd {
+  background: #906fef;
+  color: black;
   border-bottom: #4b4ba3 1px solid;
 }
 .completedBtn {
   border: 0;
   width: 2vw;
   height: 3vh;
-  margin-right: -10px;
   color: white;
   background: darkseagreen;
   cursor: pointer;
+}
+.completedItem {
+  background: darkgray;
+  text-decoration: line-through solid 2px;
 }
 .deleteBtn {
   width: 2vw;

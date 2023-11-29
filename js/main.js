@@ -13,30 +13,31 @@ for (let i = 0; i < localStorage.length; i++) {
 }
 const createListItem = () => {
   try {
-    let addItem = document.createElement("li");
-    let divadd = document.createElement("div");
-    let completing = document.createElement("button");
-    let deleting = document.createElement("button");
+    const addItem = document.createElement("li");
+    const divadd = document.createElement("div");
+    const completing = document.createElement("button");
+    const deleting = document.createElement("button");
+
     completing.classList.add("completedBtn");
     completing.setAttribute("style", "margin-right: 0;");
     completing.innerHTML = "✔";
     completing.addEventListener("click", () => {
-      completing.closest("li").style.background = "lightgrey";
-      completing.closest("li").style.opacity = "80%";
-      completing.closest("li").style.textDecoration = "line-through black";
+      if (completing.closest("li").classList.contains("completedItem")) {
+        completing.closest("li").classList.remove("completedItem");
+      } else completing.closest("li").classList.add("completedItem");
     });
 
     deleting.classList.add("deleteBtn");
     deleting.innerHTML = "✖";
     deleting.addEventListener("click", () => {
       deleting.closest("li").remove();
-      let arrayRemoveItem = deleting
+      const arrayRemoveItem = deleting
         .closest("li")
         .textContent.substring(
           0,
           deleting.closest("li").textContent.length - 2,
         );
-      let arrayIndexOfRemoveItem = storageValues.indexOf(arrayRemoveItem, 0);
+      const arrayIndexOfRemoveItem = storageValues.indexOf(arrayRemoveItem, 0);
       storageValues.splice(arrayIndexOfRemoveItem, 1);
       localStorage.removeItem(arrayRemoveItem);
       i--;
@@ -45,14 +46,14 @@ const createListItem = () => {
     divadd.append(deleting);
 
     if (i < localStorage.length) {
-      addItem.innerHTML = storageValues[i].toUpperCase();
-    } else {
-      addItem.innerHTML = inputField.value.toUpperCase();
-      localStorage.setItem(
-        inputField.value.toUpperCase(),
-        inputField.value.toUpperCase(),
-      );
-      storageValues.push(inputField.value.toUpperCase());
+      addItem.innerHTML = storageValues[i];
+    } else if (inputField.value.trim() === "") {
+      return;
+    }
+    if (i >= localStorage.length) {
+      storageValues.push(inputField.value);
+      addItem.innerHTML = inputField.value;
+      localStorage.setItem(inputField.value, inputField.value);
     }
     if (parity === false) {
       addItem.setAttribute("class", "listItem even");
@@ -72,7 +73,6 @@ const createListItem = () => {
     //localStorage.clear();
   }
 };
-
 for (let i = 0; i < localStorage.length; i++) {
   createListItem();
 }
