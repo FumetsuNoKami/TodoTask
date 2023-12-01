@@ -1,9 +1,6 @@
 let i = 0;
-const inputField = document.getElementsByClassName("headInput")[0];
 const addBtn = document.getElementsByClassName("addBtn")[0];
-const list = document.getElementsByClassName("list")[0];
-const completedBtn = document.getElementsByClassName("completedBtn");
-const deleteBtn = document.getElementsByClassName("deleteBtn");
+const inputField = document.getElementsByClassName("headInput")[0];
 const storageValues = [];
 
 if (JSON.parse(localStorage.getItem("tasks")) != null)
@@ -13,7 +10,7 @@ if (JSON.parse(localStorage.getItem("tasks")) != null)
       status: JSON.parse(localStorage.getItem("tasks"))[i].status,
     });
   }
-const createCompletedBtn = (flag) => {
+const createCompletedBtn = () => {
   const completing = document.createElement("button");
   completing.classList.add("completedBtn");
   completing.setAttribute("style", "margin-right: 0;");
@@ -71,6 +68,7 @@ const createDeleteBtn = () => {
 };
 
 const addItem = () => {
+  const list = document.getElementsByClassName("list")[0];
   const addItem = document.createElement("li");
   const divadd = document.createElement("div");
 
@@ -109,3 +107,9 @@ if (JSON.parse(localStorage.getItem("tasks")) == null) {
   localStorage.setItem("tasks", "[]");
 }
 addBtn.addEventListener("click", addItem);
+inputField.addEventListener("keypress", (e) => {
+  if (e.keyCode === 13) {
+    addBtn.click();
+    inputField.focus();
+  }
+});
