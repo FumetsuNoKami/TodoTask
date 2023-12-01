@@ -13,12 +13,8 @@ if (JSON.parse(localStorage.getItem("tasks")) != null)
       status: JSON.parse(localStorage.getItem("tasks"))[i].status,
     });
   }
-const createListItem = () => {
-  const addItem = document.createElement("li");
-  const divadd = document.createElement("div");
+const createCompletedBtn = (flag) => {
   const completing = document.createElement("button");
-  const deleting = document.createElement("button");
-
   completing.classList.add("completedBtn");
   completing.setAttribute("style", "margin-right: 0;");
   completing.innerHTML = "✔";
@@ -44,10 +40,15 @@ const createListItem = () => {
     }
     localStorage.setItem("tasks", JSON.stringify(storageValues));
   });
+  return completing;
+};
 
+const createDeleteBtn = () => {
+  const deleting = document.createElement("button");
   deleting.classList.add("deleteBtn");
   deleting.innerHTML = "✖";
-  deleting.addEventListener("click", () => {
+  deleting.addEventListener("click", (e) => {
+    console.log(e.currentTarget);
     deleting.closest("li").remove();
     let buf = [];
     for (let j = 0; j < storageValues.length; j++) {
@@ -66,10 +67,12 @@ const createListItem = () => {
       items[k].classList.add(k % 2 === 1 ? "odd" : "even");
     }
   });
+  return deleting;
+};
 
-  divadd.classList.add("divadd");
-  divadd.append(completing);
-  divadd.append(deleting);
+const addItem = () => {
+  const addItem = document.createElement("li");
+  const divadd = document.createElement("div");
 
   if (i < JSON.parse(localStorage.getItem("tasks")).length) {
     addItem.innerHTML = storageValues[i].text;
@@ -81,12 +84,16 @@ const createListItem = () => {
     addItem.innerHTML = inputField.value;
   }
 
+  divadd.classList.add("divadd");
+  divadd.append(createCompletedBtn());
+  divadd.append(createDeleteBtn());
+
+  if (storageValues[i].status === "completed")
+    addItem.classList.add("completedItem");
+
   addItem.classList.add("listItem", i % 2 === 0 ? "even" : "odd");
   addItem.append(divadd);
   list.append(addItem);
-
-  if (storageValues[i].status === "completed")
-    completing.closest("li").classList.add("completedItem");
 
   i++;
   inputField.value = "";
@@ -95,10 +102,10 @@ const createListItem = () => {
 
 if (JSON.parse(localStorage.getItem("tasks")) != null)
   for (let i = 0; i < JSON.parse(localStorage.getItem("tasks")).length; i++) {
-    createListItem();
+    addItem();
   }
 
 if (JSON.parse(localStorage.getItem("tasks")) == null) {
   localStorage.setItem("tasks", "[]");
 }
-addBtn.addEventListener("click", createListItem);
+addBtn.addEventListener("click", addItem);
